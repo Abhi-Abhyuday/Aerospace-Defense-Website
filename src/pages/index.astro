@@ -1,16 +1,33 @@
 ---
-
+// Import all the section components
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import MissionVision from '../components/MissionVision.astro';
+import SMEHelpdesk from '../components/SMEHelpdesk.astro';
+import Projects from '../components/Projects.astro';
+import NewsEvents from '../components/NewsEvents.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<!-- Use the main Layout component as the page wrapper -->
+<Layout 
+    title="Abhyuday Bharat Defence - Strength. Innovation. Security." 
+    description="Pioneering India's defence future with advanced, resilient, and intelligent systems."
+>
+    <!-- Add each component in the desired order -->
+    <Navbar />
+    <main>
+        <Hero />
+        <About />
+        <MissionVision />
+        <SMEHelpdesk />
+        <Projects />
+        <NewsEvents />
+        <Contact />
+    </main>
+    <Footer />
+</Layout>
+

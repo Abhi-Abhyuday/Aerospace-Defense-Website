@@ -1,0 +1,67 @@
+<section id="about" class="section">
+    <div class="container mx-auto px-4">
+        <div class="grid xl:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+                <img src="/images/about.webp" alt="Advanced Defence Technology" class="rounded-lg shadow-2xl shadow-gray-300 mx-auto">
+            </div>
+            <div class="reveal text-center xl:text-left">
+                <h2 class="section-title relative text-4xl lg:text-5xl font-bold pb-4 mb-8 after:left-1/2 xl:after:left-0 xl:after:translate-x-0 text-center">About Us</h2>
+                <p class="text-lg text-[#495057] mb-6 leading-relaxed text-justify">
+                    As per vision of the Hon. Prime Minister, Shri Narendra Modi Ji for "Make in India" and "AatmaNirbhar Bharat" in Defence Sector, Abhyuday is developing Aerospace & Defence Cluster in India. Abhyuday is Leading Research & Development (R&D) company in Aerospace & Defence (A&D). Abhyuday Cluster is an ecosystem with 600+ cluster members from Aerospace and core Engineering disciplines, collaborating to advance high-impact, indigenous solutions for Defense and strategic sectors. Abhyuday has established a Defence Helpdesk for providing hand holding & Incubation support for Aerospace and Defence startups and MSMEs free of cost.
+                </p>
+                
+                <!-- Stats Boxes -->
+                <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 mt-8 text-center">
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                        <p id="exp-count" class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#2E8B57]">0+</p>
+                        <p class="text-sm font-semibold text-[#495057] mt-2">Years Experience</p>
+                    </div>
+                     <div class="bg-gray-100 p-6 rounded-lg shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                        <p id="states-count" class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#2E8B57]">0+</p>
+                        <p class="text-sm font-semibold text-[#495057] mt-2">States Covered</p>
+                    </div>
+                     <div class="bg-gray-100 p-6 rounded-lg shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl col-span-2 lg:col-span-1">
+                        <p id="projects-count" class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#2E8B57]">0+</p>
+                        <p class="text-sm font-semibold text-[#495057] mt-2">Crore Projects</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // --- COUNTER ANIMATION ---
+    const counterAnim = (qSelector: string, start = 0, end: number, duration = 2000) => {
+        const target = document.querySelector(qSelector);
+        if (!target) return;
+
+        let startTimestamp: number | null = null;
+        const step = (timestamp: number) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            target.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString() + "+";
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    };
+
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                counterAnim("#exp-count", 0, 15, 2000);
+                counterAnim("#states-count", 0, 20, 2000);
+                counterAnim("#projects-count", 0, 3600, 2000);
+                statsObserver.unobserve(entry.target); // Stop observing after animation runs once
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+        statsObserver.observe(aboutSection);
+    }
+</script>
+

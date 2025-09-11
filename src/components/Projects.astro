@@ -1,0 +1,180 @@
+<section id="projects" class="section bg-[#f8f9fa]">
+  <div class="container mx-auto px-4">
+    <h2
+      class="section-title relative text-4xl lg:text-5xl font-bold pb-4 mb-12 text-center"
+    >
+      Our Projects
+    </h2>
+
+    <!-- Filter Buttons -->
+    <div
+      id="project-filters"
+      class="flex justify-center items-center gap-2 sm:gap-4 mb-12 reveal"
+    >
+      <button
+        class="filter-btn active px-4 py-2 sm:px-6 sm:py-2 text-sm sm:text-base font-semibold border-2 border-[#2E8B57] text-[#2E8B57] rounded-full"
+        data-filter="all">All</button
+      >
+      <button
+        class="filter-btn px-4 py-2 sm:px-6 sm:py-2 text-sm sm:text-base font-semibold border-2 border-[#2E8B57] text-[#2E8B57] rounded-full"
+        data-filter="ongoing">Ongoing</button
+      >
+      <button
+        class="filter-btn px-4 py-2 sm:px-6 sm:py-2 text-sm sm:text-base font-semibold border-2 border-[#2E8B57] text-[#2E8B57] rounded-full"
+        data-filter="completed">Completed</button
+      >
+    </div>
+
+    <div id="project-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Project Card 1 -->
+      <a
+        href="#"
+        class="project-card reveal relative border border-gray-200 rounded-xl overflow-hidden bg-white group shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+        data-category="ongoing"
+      >
+        <div class="project-glow"></div>
+        <img
+          src="/images/jet.jpg"
+          alt="Cyber Warfare"
+          class="w-full h-56 object-cover"
+        />
+        <div class="p-6 relative">
+          <h3 class="text-2xl font-bold mb-2">Cyber Warfare Suite</h3>
+          <p class="text-[#495057] leading-relaxed">
+            AI-driven platforms for predictive threat intelligence and automated
+            network defence.
+          </p>
+        </div>
+      </a>
+      <!-- Project Card 2 -->
+      <a
+        href="#"
+        class="project-card reveal relative border border-gray-200 rounded-xl overflow-hidden bg-white group shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+        data-category="completed"
+      >
+        <div class="project-glow"></div>
+        <img
+          src="/images/jet.jpg"
+          alt="Aerial Systems"
+          class="w-full h-56 object-cover"
+        />
+        <div class="p-6 relative">
+          <h3 class="text-2xl font-bold mb-2">Unmanned Aerial Systems</h3>
+          <p class="text-[#495057] leading-relaxed">
+            Next-gen autonomous drones for surveillance, reconnaissance, and
+            tactical support.
+          </p>
+        </div>
+      </a>
+      <!-- Project Card 3 -->
+      <a
+        href="#"
+        class="project-card reveal relative border border-gray-200 rounded-xl overflow-hidden bg-white group shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+        data-category="ongoing"
+      >
+        <div class="project-glow"></div>
+        <img
+          src="/images/jet.jpg"
+          alt="Ballistic Defence"
+          class="w-full h-56 object-cover"
+        />
+        <div class="p-6 relative">
+          <h3 class="text-2xl font-bold mb-2">Ballistic Defence Systems</h3>
+          <p class="text-[#495057] leading-relaxed">
+            Multi-layered missile shield technology for strategic asset and area
+            protection.
+          </p>
+        </div>
+      </a>
+      <!-- Project Card 4 -->
+      <a
+        href="#"
+        class="project-card reveal relative border border-gray-200 rounded-xl overflow-hidden bg-white group shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+        data-category="completed"
+      >
+        <div class="project-glow"></div>
+        <img
+          src="/images/jet.jpg"
+          alt="Naval Systems"
+          class="w-full h-56 object-cover"
+        />
+        <div class="p-6 relative">
+          <h3 class="text-2xl font-bold mb-2">Advanced Naval Systems</h3>
+          <p class="text-[#495057] leading-relaxed">
+            Development of next-generation stealth frigates and sonar
+            technology.
+          </p>
+        </div>
+      </a>
+      <!-- Project Card 5 -->
+      <a
+        href="#"
+        class="project-card reveal relative border border-gray-200 rounded-xl overflow-hidden bg-white group shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+        data-category="ongoing"
+      >
+        <div class="project-glow"></div>
+        <img
+          src="/images/jet.jpg"
+          alt="Armored Vehicles"
+          class="w-full h-56 object-cover"
+        />
+        <div class="p-6 relative">
+          <h3 class="text-2xl font-bold mb-2">Future Infantry Vehicle</h3>
+          <p class="text-[#495057] leading-relaxed">
+            Designing modular armored vehicles for various combat scenarios and
+            terrains.
+          </p>
+        </div>
+      </a>
+      <!-- Project Card 6 -->
+      <a
+        href="#"
+        class="project-card reveal relative border border-gray-200 rounded-xl overflow-hidden bg-white group shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+        data-category="completed"
+      >
+        <div class="project-glow"></div>
+        <img
+          src="/images/jet.jpg"
+          alt="Satellite Comms"
+          class="w-full h-56 object-cover"
+        />
+        <div class="p-6 relative">
+          <h3 class="text-2xl font-bold mb-2">Secure Satellite Comms</h3>
+          <p class="text-[#495057] leading-relaxed">
+            Deployed a network of encrypted communication satellites for secure
+            data links.
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // --- PROJECT FILTER SCRIPT ---
+  const filterButtons = document.querySelectorAll(
+    "#project-filters .filter-btn"
+  );
+  const projectCards = document.querySelectorAll(
+    "#project-grid .project-card"
+  ) as NodeListOf<HTMLElement>;
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const btn = button as HTMLElement;
+      // Set active button state
+      filterButtons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const filter = btn.dataset.filter;
+
+      projectCards.forEach((card) => {
+        if (filter === "all" || card.dataset.category === filter) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+</script>

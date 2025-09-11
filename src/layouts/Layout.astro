@@ -1,0 +1,79 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title: string;
+    description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Favicon (Example) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+</head>
+<body class="bg-white text-[#212529]">
+    <slot />
+
+    <script>
+        // --- MOBILE NAVIGATION SCRIPT ---
+        const navMenu = document.getElementById('nav-menu');
+        const navToggle = document.getElementById('nav-toggle');
+        const navClose = document.getElementById('nav-close');
+        const navLinks = document.querySelectorAll('#nav-menu .nav-link');
+
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                if(navMenu) navMenu.style.right = '0%';
+            });
+        }
+        if (navClose) {
+            navClose.addEventListener('click', () => {
+                if(navMenu) navMenu.style.right = '-100%';
+            });
+        }
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(navMenu) navMenu.style.right = '-100%';
+            });
+        });
+
+        // --- HEADER SCROLL EFFECT ---
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (header) {
+                 header.classList.toggle('header-scrolled', window.scrollY >= 50);
+            }
+        });
+        
+        // --- SCROLL REVEAL ANIMATION ---
+        const reveal = () => {
+            const reveals = document.querySelectorAll('.reveal');
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveals[i].getBoundingClientRect().top;
+                const revealPoint = 50;
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('visible');
+                }
+            }
+        };
+        window.addEventListener('scroll', reveal);
+        document.addEventListener('DOMContentLoaded', reveal);
+    </script>
+</body>
+</html>
+
