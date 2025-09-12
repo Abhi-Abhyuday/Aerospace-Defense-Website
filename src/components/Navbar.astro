@@ -1,42 +1,143 @@
 ---
 // This component doesn't need any server-side JavaScript.
 ---
-<header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-transparent">
-    <nav class="container mx-auto px-4 h-20 flex justify-between items-center">
-        <a href="#home" class="flex items-center gap-3">
-            <img src="/images/logo.png" alt="Abhyuday Bharat Defense Logo" class="h-18 w-auto">
-            <span class="font-semibold text-xl text-white header-title transition-colors duration-300">ABHYUDAY BHARAT DEFENSE</span>
-        </a>
 
-        <!-- Desktop Menu -->
-        <ul class="hidden lg:flex items-center space-x-12">
-            <li><a href="#home" class="nav-link relative text-white font-medium pb-1 transition-colors duration-300">Home</a></li>
-            <li><a href="#about" class="nav-link relative text-white font-medium pb-1 transition-colors duration-300">About Us</a></li>
-            <li><a href="#mission" class="nav-link relative text-white font-medium pb-1 transition-colors duration-300">Mission</a></li>
-            <li><a href="#sme-helpdesk" class="nav-link relative text-white font-medium pb-1 transition-colors duration-300">SME Helpdesk</a></li>
-            <li><a href="#projects" class="nav-link relative text-white font-medium pb-1 transition-colors duration-300">Projects</a></li>
-            <li><a href="#news" class="nav-link relative text-white font-medium pb-1 transition-colors duration-300">News & Events</a></li>
-            <li><a href="#contact" class="nav-link relative text-white font-medium pb-1 transition-colors duration-300">Contact Us</a></li>
-        </ul>
+<header
+  id="header"
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-transparent"
+>
+  <nav class="container mx-auto px-4 h-20 flex justify-between items-center">
+    <a href="#home" class="flex items-center gap-3">
+      <img
+        src="/images/logo.png"
+        alt="Abhyuday Bharat Defense Logo"
+        class="h-18 w-auto"
+      />
+      <span
+        class="font-semibold text-xl text-white header-title transition-colors duration-300"
+        >ABHYUDAY BHARAT DEFENSE</span
+      >
+    </a>
 
-        <!-- Mobile & Tablet Menu Button -->
-        <button id="nav-toggle" class="lg:hidden text-3xl text-white header-toggle transition-colors duration-300">
-            &#9776;
-        </button>
-    </nav>
-    
-    <!-- Mobile & Tablet Menu Panel -->
-    <div id="nav-menu" class="fixed top-0 right-[-100%] w-full max-w-sm h-screen bg-[rgba(255,255,255,0.95)] backdrop-blur-lg transition-all duration-500 lg:hidden shadow-2xl">
-        <button id="nav-close" class="absolute top-8 right-8 text-4xl text-black">&times;</button>
-        <ul class="flex flex-col items-center justify-center h-full space-y-10 pt-20">
-                 <li><a href="#home" class="nav-link text-3xl font-medium text-black">Home</a></li>
-                 <li><a href="#about" class="nav-link text-3xl font-medium text-black">About Us</a></li>
-                 <li><a href="#mission" class="nav-link text-3xl font-medium text-black">Mission</a></li>
-                 <li><a href="#sme-helpdesk" class="nav-link text-3xl font-medium text-black">SME Helpdesk</a></li>
-                 <li><a href="#projects" class="nav-link text-3xl font-medium text-black">Projects</a></li>
-                 <li><a href="#news" class="nav-link text-3xl font-medium text-black">News & Events</a></li>
-                 <li><a href="#contact" class="nav-link text-3xl font-medium text-black">Contact Us</a></li>
-        </ul>
-    </div>
+    <!-- Desktop Menu -->
+    <ul class="hidden lg:flex items-center space-x-12">
+      <li>
+        <a
+          href="#home"
+          class="nav-link relative text-white font-medium pb-1 transition-colors duration-300"
+          >Home</a
+        >
+      </li>
+      <li>
+        <a
+          href="#about"
+          class="nav-link relative text-white font-medium pb-1 transition-colors duration-300"
+          >About Us</a
+        >
+      </li>
+      <li>
+        <a
+          href="#mission"
+          class="nav-link relative text-white font-medium pb-1 transition-colors duration-300"
+          >Mission</a
+        >
+      </li>
+      <li>
+        <a
+          href="#sme-helpdesk"
+          class="nav-link relative text-white font-medium pb-1 transition-colors duration-300"
+          >SME Helpdesk</a
+        >
+      </li>
+      <li>
+        <a
+          href="#projects"
+          class="nav-link relative text-white font-medium pb-1 transition-colors duration-300"
+          >Projects</a
+        >
+      </li>
+      <li>
+        <a
+          href="#news"
+          class="nav-link relative text-white font-medium pb-1 transition-colors duration-300"
+          >News & Events</a
+        >
+      </li>
+      <li>
+        <a
+          href="#contact"
+          class="nav-link relative text-white font-medium pb-1 transition-colors duration-300"
+          >Contact Us</a
+        >
+      </li>
+      <li>
+        <a
+          href="#vendor-registration"
+          class="nav-link relative text-white font-medium pb-1 transition-colors duration-300"
+          >Vendor Registration</a>
+      </li>
+    </ul>
+
+    <!-- Mobile & Tablet Menu Button -->
+    <button
+      id="nav-toggle"
+      class="lg:hidden text-3xl text-white header-toggle transition-colors duration-300"
+    >
+      &#9776;
+    </button>
+  </nav>
+
+  <!-- Mobile & Tablet Menu Panel -->
+  <div
+    id="nav-menu"
+    class="fixed top-0 right-[-100%] w-full max-w-sm h-screen bg-[rgba(255,255,255,0.95)] backdrop-blur-lg transition-all duration-500 lg:hidden shadow-2xl"
+  >
+    <button id="nav-close" class="absolute top-8 right-8 text-4xl text-black"
+      >&times;</button
+    >
+    <ul
+      class="flex flex-col items-center justify-center h-full space-y-10 pt-20"
+    >
+      <li>
+        <a href="#home" class="nav-link text-2xl font-medium text-black">Home</a
+        >
+      </li>
+      <li>
+        <a href="#about" class="nav-link text-2xl font-medium text-black"
+          >About Us</a
+        >
+      </li>
+      <li>
+        <a href="#mission" class="nav-link text-2xl font-medium text-black"
+          >Mission</a
+        >
+      </li>
+      <li>
+        <a href="#sme-helpdesk" class="nav-link text-2xl font-medium text-black"
+          >SME Helpdesk</a
+        >
+      </li>
+      <li>
+        <a href="#projects" class="nav-link text-2xl font-medium text-black"
+          >Projects</a
+        >
+      </li>
+      <li>
+        <a href="#news" class="nav-link text-2xl font-medium text-black"
+          >News & Events</a
+        >
+      </li>
+      <li>
+        <a href="#contact" class="nav-link text-2xl font-medium text-black"
+          >Contact Us</a
+        >
+      </li>
+      <li>
+        <a
+          href="#vendor-registration"
+          class="nav-link text-2xl font-medium text-black"
+          >Vendor Registration</a>
+      </li>
+    </ul>
+  </div>
 </header>
-
