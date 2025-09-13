@@ -1,24 +1,33 @@
 <section id="home" class="section h-screen p-0 border-b-0 text-white">
     <div class="absolute top-0 left-0 w-full h-full z-0">
-        <!-- The URLs now point to your local images in the public/images folder -->
+        <!-- Backgrounds -->
         <div class="slider-image" style="background-image: url('/images/jet.jpg'); animation-delay: 0s;"></div>
         <div class="slider-image" style="background-image: url('/images/ship2.jpg'); animation-delay: 6s;"></div>
         <div class="slider-image" style="background-image: url('/images/tank1.jpg'); animation-delay: 12s;"></div>
+        
+        <!-- Overlays -->
         <div class="absolute top-0 left-0 w-full h-full bg-black/60"></div>
+        <div class="hero-grid-overlay"></div>
+        <!-- New Scanline Effect Overlay -->
+        <div class="scanline-overlay"></div>
     </div>
     <div class="container mx-auto px-4 text-center z-10">
         <div class="reveal">
-            <h1 class="text-4xl sm:text-6xl lg:text-8xl font-black uppercase tracking-wider">
-                <span class="text-amber-50">Strength</span><span class="text-[#2E8B57]">.</span> 
-                <span class="text-amber-50">Innovation</span><span class="text-[#2E8B57]">.</span> 
-                <span class="text-amber-50">Security</span><span class="text-[#2E8B57]">.</span>
+            <h1 class="text-4xl sm:text-6xl lg:text-8xl font-black uppercase tracking-wider hero-title">
+                <span class="hero-title-word">Strength</span><span class="text-[#2E8B57]">.</span> 
+                <span class="hero-title-word">Innovation</span><span class="text-[#2E8B57]">.</span> 
+                <span class="hero-title-word">Security</span><span class="text-[#2E8B57]">.</span>
             </h1>
-            <p class="mt-6 max-w-3xl mx-auto text-lg sm:text-xl text-gray-200 leading-relaxed">
-                Forging the future of national defense with advanced, resilient, and intelligent systems.
-            </p>
-            <a href="#projects" class="inline-block mt-10 px-10 py-4 border-2 border-[#2E8B57] text-lg font-medium rounded-md bg-[#2E8B57] text-white hover:bg-transparent hover:text-white transition-colors duration-300">
-                Explore Our Projects
-            </a>
+             <div class="cascade-reveal">
+                <p class="mt-6 max-w-3xl mx-auto text-lg sm:text-xl text-gray-200 leading-relaxed">
+                    Forging the future of national defense with advanced, resilient, and intelligent systems.
+                </p>
+            </div>
+            <div class="cascade-reveal">
+                <a href="#projects" class="inline-block mt-10 px-10 py-4 border-2 border-[#2E8B57] text-lg font-medium rounded-md bg-[#2E8B57] text-white hover:bg-transparent hover:text-white transition-colors duration-300">
+                    Explore Our Projects
+                </a>
+            </div>
         </div>
     </div>
 </section>
