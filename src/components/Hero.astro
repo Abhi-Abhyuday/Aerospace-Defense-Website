@@ -8,15 +8,19 @@
         <!-- Overlays -->
         <div class="absolute top-0 left-0 w-full h-full bg-black/60"></div>
         <div class="hero-grid-overlay"></div>
-        <!-- New Scanline Effect Overlay -->
         <div class="scanline-overlay"></div>
     </div>
     <div class="container mx-auto px-4 text-center z-10">
         <div class="reveal">
-            <h1 class="text-4xl sm:text-6xl lg:text-8xl font-black uppercase tracking-wider hero-title">
-                <span class="hero-title-word">Strength</span><span class="text-[#2E8B57]">.</span> 
-                <span class="hero-title-word">Innovation</span><span class="text-[#2E8B57]">.</span> 
-                <span class="hero-title-word">Security</span><span class="text-[#2E8B57]">.</span>
+            <!-- UPDATED: Breakpoint changed from lg to 2xl for better laptop responsiveness -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl font-black uppercase tracking-wider hero-title">
+                <!-- Group for the first row -->
+                <div class="2xl:flex 2xl:justify-center 2xl:gap-x-4">
+                    <div class="whitespace-nowrap"><span class="hero-title-word">Strength</span><span class="text-[#2E8B57]">.</span></div> 
+                    <div class="whitespace-nowrap"><span class="hero-title-word">Innovation</span><span class="text-[#2E8B57]">.</span></div> 
+                </div>
+                <!-- Second row -->
+                <div class="whitespace-nowrap"><span class="hero-title-word">Security</span><span class="text-[#2E8B57]">.</span></div>
             </h1>
              <div class="cascade-reveal">
                 <p class="mt-6 max-w-3xl mx-auto text-lg sm:text-xl text-gray-200 leading-relaxed">
