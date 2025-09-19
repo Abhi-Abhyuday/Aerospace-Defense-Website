@@ -1,79 +1,88 @@
 ---
+// src/layouts/Layout.astro
+
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 interface Props {
 	title: string;
-    description: string;
+	description: string;
+	headerMode?: 'transparent' | 'scrolled';
 }
 
-const { title, description } = Astro.props;
+const { title, description, headerMode = 'transparent' } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title}</title>
-    <meta name="description" content={description}>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Favicon (Example) -->
-    <link rel="icon" href="/images/logo.png" type="image/png">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{title}</title>
+	<meta name="description" content={description}>
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap" rel="stylesheet">
+	
+	<link rel="icon" href="/images/logo.png" type="image/png">
 </head>
 <body class="bg-white text-[#212529]">
-    <slot />
+    
+    <Navbar headerMode={headerMode} />
+	<slot />
+    <Footer />
 
-    <script>
-        // --- MOBILE NAVIGATION SCRIPT ---
-        const navMenu = document.getElementById('nav-menu');
-        const navToggle = document.getElementById('nav-toggle');
-        const navClose = document.getElementById('nav-close');
-        const navLinks = document.querySelectorAll('#nav-menu .nav-link');
+	<script>
+		// --- MOBILE NAVIGATION SCRIPT ---
+		const navMenu = document.getElementById('nav-menu');
+		const navToggle = document.getElementById('nav-toggle');
+		const navClose = document.getElementById('nav-close');
+		const navLinks = document.querySelectorAll('#nav-menu .nav-link');
 
-        if (navToggle) {
-            navToggle.addEventListener('click', () => {
-                if(navMenu) navMenu.style.right = '0%';
+		if (navToggle) {
+			navToggle.addEventListener('click', () => {
+				if(navMenu) navMenu.style.right = '0%';
+			});
+		}
+		if (navClose) {
+			navClose.addEventListener('click', () => {
+				if(navMenu) navMenu.style.right = '-100%';
+			});
+		}
+		navLinks.forEach(link => {
+			link.addEventListener('click', () => {
+				if(navMenu) navMenu.style.right = '-100%';
+			});
+		});
+
+		// --- HEADER SCROLL EFFECT ---
+		const header = document.getElementById('header');
+
+        // --- MODIFIED LOGIC ---
+        // We only add the scroll listener if the header does NOT start in the 'scrolled' state.
+        // This preserves the permanent black text on pages like 'Services'.
+        if (header && !header.classList.contains('header-scrolled')) {
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('header-scrolled', window.scrollY >= 50);
             });
         }
-        if (navClose) {
-            navClose.addEventListener('click', () => {
-                if(navMenu) navMenu.style.right = '-100%';
-            });
-        }
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if(navMenu) navMenu.style.right = '-100%';
-            });
-        });
-
-        // --- HEADER SCROLL EFFECT ---
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (header) {
-                 header.classList.toggle('header-scrolled', window.scrollY >= 50);
-            }
-        });
-        
-        // --- SCROLL REVEAL ANIMATION ---
-        const reveal = () => {
-            const reveals = document.querySelectorAll('.reveal');
-            for (let i = 0; i < reveals.length; i++) {
-                const windowHeight = window.innerHeight;
-                const revealTop = reveals[i].getBoundingClientRect().top;
-                const revealPoint = 50;
-                if (revealTop < windowHeight - revealPoint) {
-                    reveals[i].classList.add('visible');
-                }
-            }
-        };
-        window.addEventListener('scroll', reveal);
-        document.addEventListener('DOMContentLoaded', reveal);
-    </script>
+		
+		// --- SCROLL REVEAL ANIMATION ---
+		const reveal = () => {
+			const reveals = document.querySelectorAll('.reveal');
+			for (let i = 0; i < reveals.length; i++) {
+				const windowHeight = window.innerHeight;
+				const revealTop = reveals[i].getBoundingClientRect().top;
+				const revealPoint = 50;
+				if (revealTop < windowHeight - revealPoint) {
+					reveals[i].classList.add('visible');
+				}
+			}
+		};
+		window.addEventListener('scroll', reveal);
+		document.addEventListener('DOMContentLoaded', reveal);
+	</script>
 </body>
 </html>
-

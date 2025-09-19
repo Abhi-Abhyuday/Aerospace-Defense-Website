@@ -1,50 +1,58 @@
 ---
-// This component doesn't need any server-side JavaScript.
+// src/components/Navbar.astro
+
+// --- ADDED: Define the prop the component will receive ---
+interface Props {
+    headerMode: 'transparent' | 'scrolled';
+}
+
+const { headerMode } = Astro.props;
 ---
-<header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-transparent">
+
+<header 
+    id="header" 
+    class:list={[
+        "fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-transparent",
+        { 'header-scrolled': headerMode === 'scrolled' }
+    ]}
+>
     <nav class="container mx-auto px-4 h-20 flex justify-between items-center">
-        <a href="#home" class="flex items-center gap-3">
+        <a href="/" class="flex items-center gap-3">
             <img src="/images/logo.png" alt="ABHYUDAY BHARAT DEFENSE Logo" class="h-12 w-auto">
-            <!-- UPDATED: Breakpoint changed from xl to 2xl for wider compatibility -->
             <div class="font-semibold text-base md:text-lg 2xl:text-xl text-white header-title transition-colors duration-300 leading-tight flex flex-col 2xl:flex-row 2xl:gap-2">
                 <span>ABHYUDAY BHARAT</span>
                 <span>DEFENSE</span>
             </div>
         </a>
 
-        <!-- Desktop Menu -->
-        <!-- UPDATED: Spacing breakpoint changed from xl to 2xl -->
         <ul class="hidden lg:flex items-center space-x-6 2xl:space-x-10">
-            <li><a href="#home" class="nav-link relative text-white text-sm xl:text-base font-medium pb-1 transition-colors duration-300">Home</a></li>
-            <li><a href="#about" class="nav-link relative text-white text-sm xl:text-base font-medium pb-1 transition-colors duration-300">About Us</a></li>
-            <!-- <li><a href="#mission" class="nav-link relative text-white text-sm xl:text-base font-medium pb-1 transition-colors duration-300">Mission</a></li> -->
-            <li><a href="#sme-helpdesk" class="nav-link relative text-white text-sm xl:text-base font-medium pb-1 transition-colors duration-300">SME Helpdesk</a></li>
-            <li><a href="#projects" class="nav-link relative text-white text-sm xl:text-base font-medium pb-1 transition-colors duration-300">Projects</a></li>
-            <li><a href="#vendor-registration" class="nav-link relative text-white text-sm xl:text-base font-medium pb-1 transition-colors duration-300">Vendor Registration</a></li>
-            <li><a href="#news" class="nav-link relative text-white text-sm xl:text-base font-medium pb-1 transition-colors duration-300">News & Events</a></li>
-            <li><a href="#contact" class="nav-link relative text-white text-sm xl:text-base font-medium pb-1 transition-colors duration-300">Contact Us</a></li>
+            <li><a href="/#home" class="nav-link relative text-white text-sm xl:text-base font-medium pb-1 transition-colors duration-300">Home</a></li>
+            <li><a href="/#about" class="nav-link relative text-white text-sm xl:text-base font-medium pb-1 transition-colors duration-300">About Us</a></li>
+            <li><a href="/#sme-helpdesk" class="nav-link relative text-white text-sm xl:text-base font-medium pb-1 transition-colors duration-300">SME Helpdesk</a></li>
+            <li><a href="/#projects" class="nav-link relative text-white text-sm xl:text-base font-medium pb-1 transition-colors duration-300">Projects</a></li>
+            <li><a href="/#vendor-registration" class="nav-link relative text-white text-sm xl:text-base font-medium pb-1 transition-colors duration-300">Vendor Registration</a></li>
+            <li><a href="/#news" class="nav-link relative text-white text-sm xl:text-base font-medium pb-1 transition-colors duration-300">News & Events</a></li>
+            <li><a href="/#contact" class="nav-link relative text-white text-sm xl:text-base font-medium pb-1 transition-colors duration-300">Contact Us</a></li>
+            <li><a href="/services" class="nav-link relative text-white text-sm xl:text-base font-medium pb-1 transition-colors duration-300">Services</a></li>
         </ul>
 
-        <!-- Mobile & Tablet Menu Button -->
         <button id="nav-toggle" class="lg:hidden text-3xl text-white header-toggle transition-colors duration-300">
             &#9776;
         </button>
     </nav>
     
-    <!-- Mobile & Tablet Menu Panel -->
     <div id="nav-menu" class="fixed top-0 right-[-100%] w-full max-w-sm h-screen bg-[rgba(255,255,255,0.95)] backdrop-blur-lg transition-all duration-500 lg:hidden shadow-2xl">
         <button id="nav-close" class="absolute top-8 right-8 text-4xl text-black">&times;</button>
-        <!-- Adjusted spacing for mobile menu -->
         <ul class="flex flex-col items-center justify-center h-full space-y-8">
-            <li><a href="#home" class="nav-link text-2xl font-medium text-black">Home</a></li>
-            <li><a href="#about" class="nav-link text-2xl font-medium text-black">About Us</a></li>
-            <li><a href="#mission" class="nav-link text-2xl font-medium text-black">Mission</a></li>
-            <li><a href="#sme-helpdesk" class="nav-link text-2xl font-medium text-black">SME Helpdesk</a></li>
-            <li><a href="#projects" class="nav-link text-2xl font-medium text-black">Projects</a></li>
-            <li><a href="#vendor-registration" class="nav-link text-2xl font-medium text-black">Vendor Registration</a></li>
-            <li><a href="#news" class="nav-link text-2xl font-medium text-black">News & Events</a></li>
-            <li><a href="#contact" class="nav-link text-2xl font-medium text-black">Contact Us</a></li>
+            <li><a href="/#home" class="nav-link text-2xl font-medium text-black">Home</a></li>
+            <li><a href="/#about" class="nav-link text-2xl font-medium text-black">About Us</a></li>
+            <li><a href="/#mission" class="nav-link text-2xl font-medium text-black">Mission</a></li>
+            <li><a href="/#sme-helpdesk" class="nav-link text-2xl font-medium text-black">SME Helpdesk</a></li>
+            <li><a href="/#projects" class="nav-link text-2xl font-medium text-black">Projects</a></li>
+            <li><a href="/#vendor-registration" class="nav-link text-2xl font-medium text-black">Vendor Registration</a></li>
+            <li><a href="/#news" class="nav-link text-2xl font-medium text-black">News & Events</a></li>
+            <li><a href="/#contact" class="nav-link text-2xl font-medium text-black">Contact Us</a></li>
+            <li><a href="/services" class="nav-link text-2xl font-medium text-black">Services</a></li>
         </ul>
     </div>
 </header>
-
